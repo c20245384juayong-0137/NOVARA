@@ -1,0 +1,45 @@
+
+---
+const currentYear = new Date().getFullYear();
+
+const footerLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/About" },
+  { name: "Services", href: "/Services" },
+  { name: "Projects", href: "/Projects" },
+  { name: "Contact", href: "/Contact" },
+];
+---
+
+<footer class="bg-[#080808] px-[30px] pb-[25px] pt-[75px] text-white">
+  <div class="mx-auto max-w-[1200px]">
+    <div class="grid grid-cols-1 gap-[35px] pb-[65px] min-[701px]:grid-cols-[2fr_1fr_1fr] min-[701px]:gap-[60px]">
+      <div>
+        <h2 class="mb-[18px] text-[35px] font-bold tracking-[5px]">NOVARA<span class="text-neutral-500">.</span></h2>
+        <p class="max-w-[350px] text-sm leading-[1.8] text-neutral-400">
+          Creating modern digital experiences through creativity,
+          technology, and innovation.
+        </p>
+      </div>
+
+      <nav class="flex flex-col gap-[15px]" aria-label="Footer navigation">
+        <h3 class="mb-2 text-[15px] font-bold">Quick Links</h3>
+        {footerLinks.map((link) => (
+          <a class="text-sm text-neutral-400 no-underline transition-colors hover:text-white" href={link.href}>{link.name}</a>
+        ))}
+      </nav>
+
+      <div class="flex flex-col gap-[15px]">
+        <h3 class="mb-2 text-[15px] font-bold">Get In Touch</h3>
+        <a class="text-sm text-neutral-400 no-underline transition-colors hover:text-white" href="/Contact">Let's work together ↗</a>
+        <p class="max-w-[350px] text-sm leading-[1.8] text-neutral-400">Available for new projects.</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-start gap-[15px] border-t border-neutral-800 pt-[25px] text-xs text-neutral-500 min-[701px]:flex-row min-[701px]:items-center min-[701px]:justify-between">
+      <p>© {currentYear} NOVARA. All rights reserved.</p>
+      <p>Designed with creativity and passion.</p>
+      <a class="text-neutral-500 no-underline transition-colors hover:text-white" href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>

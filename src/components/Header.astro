@@ -1,0 +1,80 @@
+
+---
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/About" },
+  { name: "Services", href: "/Services" },
+  { name: "Projects", href: "/Projects" },
+  { name: "Process", href: "/Process" },
+  { name: "Contact", href: "/Contact" },
+];
+---
+
+<header class="sticky top-0 z-[1000] w-full border-b border-neutral-200 bg-white text-neutral-950">
+  <div class="mx-auto flex max-w-[1200px] items-center justify-between px-[30px] py-[18px]">
+    <a href="/" class="text-neutral-950" aria-label="NOVARA home">
+      <svg viewBox="0 0 100 80" class="h-[52px] w-[65px]" fill="none" aria-hidden="true">
+        <path
+          d="M12 57 C30 13 77 3 85 12 C92 20 55 55 20 67"
+          stroke="currentColor"
+          stroke-width="7"
+          stroke-linecap="round"
+        />
+        <path
+          d="M76 5 L79 17 L91 20 L79 23 L76 35 L73 23 L61 20 L73 17 Z"
+          fill="currentColor"
+        />
+      </svg>
+    </a>
+
+    <nav class="hidden items-center gap-7 min-[851px]:flex" aria-label="Main navigation">
+      {navLinks.map((link) => (
+        <a class="text-sm text-neutral-800 no-underline transition-colors duration-300 hover:text-neutral-500" href={link.href}>{link.name}</a>
+      ))}
+    </nav>
+
+    <a href="/Contact" class="hidden rounded-full bg-neutral-950 px-[22px] py-3 text-sm text-white no-underline transition-colors hover:bg-neutral-700 min-[851px]:inline-block">
+      Let's Talk <span>↗</span>
+    </a>
+
+    <button
+      class="menu-toggle grid size-11 place-items-center border-0 bg-transparent text-2xl text-neutral-950 min-[851px]:hidden"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      type="button"
+    >
+      ☰
+    </button>
+  </div>
+
+  <nav class="mobile-nav hidden flex-col gap-5 border-t border-neutral-200 px-[30px] pb-[25px] pt-[15px] min-[851px]:hidden" id="mobile-nav" aria-label="Mobile navigation">
+    {navLinks.map((link) => (
+      <a class="text-sm text-neutral-800 no-underline transition-colors duration-300 hover:text-neutral-500" href={link.href}>{link.name}</a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const menuToggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
+  const mobileNav = document.querySelector<HTMLElement>(".mobile-nav");
+
+  menuToggle?.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") !== "true";
+    mobileNav?.classList.toggle("hidden", !isOpen);
+    mobileNav?.classList.toggle("flex", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    menuToggle.textContent = isOpen ? "✕" : "☰";
+  });
+
+  mobileNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.add("hidden");
+      mobileNav.classList.remove("flex");
+      menuToggle?.setAttribute("aria-expanded", "false");
+      menuToggle?.setAttribute("aria-label", "Open navigation");
+      if (menuToggle) menuToggle.textContent = "☰";
+    });
+  });
+</script>

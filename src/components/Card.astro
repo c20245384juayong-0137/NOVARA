@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  category?: string;
+  image?: string;
+  link?: string;
+  number?: string;
+}
+
+const {
+  title,
+  description,
+  category = "Featured",
+  image,
+  link = "/Projects",
+  number = "01",
+} = Astro.props;
+---
+
+<article class="group overflow-hidden rounded-[18px] border border-neutral-200 bg-white transition-[transform,box-shadow] duration-300 hover:-translate-y-[7px] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]">
+  <a href={link} class="block text-inherit no-underline">
+    <div class="relative h-[230px] overflow-hidden bg-neutral-100">
+      {image ? (
+        <img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]" src={image} alt={title} loading="lazy" />
+      ) : (
+        <div class="grid h-full w-full place-items-center bg-gradient-to-br from-neutral-950 to-neutral-700 text-[60px] font-bold text-white">
+          <span aria-hidden="true">{number}</span>
+        </div>
+      )}
+
+      <span class="absolute right-[15px] top-[15px] grid size-10 place-items-center rounded-full bg-white text-xl text-black" aria-hidden="true">↗</span>
+    </div>
+
+    <div class="p-[25px]">
+      <div class="flex justify-between text-xs uppercase tracking-[1px] text-neutral-500">
+        <span>{category}</span>
+        <span>{number}</span>
+      </div>
+
+      <h3 class="mb-[10px] mt-[18px] text-[23px] text-neutral-950">{title}</h3>
+
+      <p class="text-sm leading-[1.7] text-neutral-600">{description}</p>
+
+      <span class="mt-[15px] inline-block text-[13px] font-semibold text-neutral-950">Explore Project ↗</span>
+    </div>
+  </a>
+</article>

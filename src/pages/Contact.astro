@@ -15,14 +15,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">Get in touch</span>
       <h2 data-text-reveal class="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-[-0.06em] sm:text-5xl">Start a<br />conversation.</h2>
       <div class="mt-12 divide-y divide-neutral-200 border-y border-neutral-200">
-        <div class="py-5"><span class="text-[10px] font-bold tracking-[0.17em]">EMAIL</span><p class="mt-2 text-sm text-neutral-600">hello@novara.com</p></div>
+        <div class="py-5"><span class="text-[10px] font-bold tracking-[0.17em]">EMAIL</span><p class="mt-2 text-sm text-neutral-600"><a class="hover:text-neutral-950" href="mailto:hello@novara.com">hello@novara.com</a></p></div>
         <div class="py-5"><span class="text-[10px] font-bold tracking-[0.17em]">LOCATION</span><p class="mt-2 text-sm text-neutral-600">Philippines</p></div>
         <div class="py-5"><span class="text-[10px] font-bold tracking-[0.17em]">SOCIAL MEDIA</span><p class="mt-2 text-sm text-neutral-600">Instagram / Facebook</p></div>
       </div>
     </div>
-    <form class="flex flex-col" action="https://formsubmit.co/your-email@example.com" method="POST">
-      <input type="hidden" name="_subject" value="New NOVARA Website Inquiry" />
-      <input type="hidden" name="_captcha" value="true" />
+    <form class="flex flex-col" action="mailto:hello@novara.com" method="POST" enctype="text/plain">
       <label class="mb-2 text-[10px] font-bold tracking-[0.17em]" for="name">YOUR NAME</label>
       <input class="mb-7 border-b border-neutral-300 bg-transparent px-0 py-3 text-sm outline-none placeholder:text-neutral-400 focus:border-neutral-950 focus:ring-0" type="text" id="name" name="name" placeholder="Enter your name" autocomplete="name" required />
       <label class="mb-2 text-[10px] font-bold tracking-[0.17em]" for="email">EMAIL ADDRESS</label>
