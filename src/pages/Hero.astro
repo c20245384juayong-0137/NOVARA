@@ -1,114 +1,17 @@
-
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="NOVARA | Brand Introduction">
-
-  <section class="hero-page">
-    <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=2000&q=90" alt="Fashion model wearing modern streetwear" />
+  <section class="relative flex min-h-[calc(100svh-76px)] items-center overflow-hidden bg-neutral-950 px-5 py-20 text-white sm:px-8 md:px-12">
+    <img data-parallax class="absolute inset-0 h-full w-full object-cover object-[center_35%]" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=2000&q=90" alt="Fashion model wearing modern streetwear" fetchpriority="high" />
+    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/10"></div>
+    <div class="relative z-10 mx-auto w-full max-w-[1440px]">
+      <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-white/75">The new era of everyday fashion</span>
+      <h1 data-text-reveal class="mt-5 text-[clamp(6rem,18vw,14rem)] font-black leading-[0.8] tracking-[-0.09em]">NOVA<span class="text-lime-300">RA.</span></h1>
+      <p class="mt-7 text-xs font-semibold uppercase tracking-[0.25em] sm:text-sm">Redefine your everyday.</p>
+      <a data-magnetic class="mt-9 inline-flex items-center gap-3 bg-white px-6 py-4 text-[10px] font-bold uppercase tracking-[0.14em] text-neutral-950 hover:bg-lime-300" href="/Projects">Discover the collection <span aria-hidden="true">↗</span></a>
     </div>
-
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-      <span>THE NEW ERA OF EVERYDAY FASHION</span>
-      <h1>NOVARA<span>.</span></h1>
-      <p>REDEFINE YOUR EVERYDAY.</p>
-      <a href="/Projects">DISCOVER THE COLLECTION ↗</a>
-    </div>
-
-    <div class="hero-bottom">
-      <span>EST. 2026</span>
-      <span>MODERN STREETWEAR</span>
-      <span>01 / NOVARA</span>
-    </div>
+    <div class="absolute bottom-6 left-5 right-5 z-10 flex justify-between text-[8px] font-bold uppercase tracking-[0.15em] text-white/70 sm:bottom-8 sm:left-8 sm:right-8 sm:text-[10px] md:left-12 md:right-12"><span>Est. 2026</span><span>Modern streetwear</span><span>01 / NOVARA</span></div>
   </section>
-
 </BaseLayout>
-
-<style>
-  .hero-page {
-    height: calc(100vh - 85px);
-    min-height: 600px;
-    position: relative;
-    background: #111;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 7%;
-    overflow: hidden;
-  }
-
-  .hero-bg, .hero-overlay {
-    position: absolute;
-    inset: 0;
-  }
-
-  .hero-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 35%;
-  }
-
-  .hero-overlay {
-    background: linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.1));
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-content > span {
-    font-size: 10px;
-    letter-spacing: 4px;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(90px, 17vw, 200px);
-    font-weight: 900;
-    letter-spacing: -12px;
-    line-height: 1;
-    margin: 25px 0;
-  }
-
-  .hero-content h1 span { color: #999; }
-
-  .hero-content p {
-    font-size: 13px;
-    letter-spacing: 5px;
-    margin-bottom: 35px;
-  }
-
-  .hero-content a {
-    display: inline-block;
-    padding: 18px 25px;
-    background: white;
-    color: black;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-
-  .hero-bottom {
-    position: absolute;
-    bottom: 30px;
-    left: 7%;
-    right: 7%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: #ddd;
-  }
-
-  @media(max-width: 650px) {
-    .hero-page { height: calc(100vh - 72px); }
-    .hero-content h1 { letter-spacing: -6px; }
-    .hero-content > span { letter-spacing: 2px; }
-    .hero-bottom { font-size: 8px; }
-  }
-</style>

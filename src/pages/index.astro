@@ -1,414 +1,67 @@
-
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="NOVARA | Modern Streetwear">
-
-  <section class="hero">
-    <div class="hero-content reveal">
-      <span class="section-label">EST. 2026 — MODERN STREETWEAR</span>
-      <h1>WEAR YOUR<br /><span>IDENTITY.</span></h1>
-      <p>
-        More than clothing. A statement of individuality,
-        confidence, and modern expression.
-      </p>
-      <div class="hero-actions">
-        <a href="/Projects" class="btn-black">EXPLORE COLLECTION ↗</a>
-        <a href="/About" class="btn-text">DISCOVER NOVARA</a>
+  <section class="mx-auto grid max-w-[1440px] gap-10 px-5 py-12 sm:px-8 sm:py-16 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-14 md:px-12 md:py-20">
+    <div class="max-w-xl py-4">
+      <span class="text-[10px] font-bold uppercase tracking-[0.24em] text-neutral-500">Est. 2026 / Modern streetwear</span>
+      <h1 data-text-reveal class="mt-7 text-[clamp(3.5rem,9vw,7.8rem)] font-black uppercase leading-[0.84] tracking-[-0.075em]">Wear your<br /><span class="text-neutral-400">identity.</span></h1>
+      <p class="mt-7 max-w-md text-sm leading-7 text-neutral-600 sm:text-base">More than clothing. A statement of individuality, confidence, and modern expression.</p>
+      <div class="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+        <a data-magnetic href="/Projects" class="inline-flex items-center gap-3 bg-neutral-950 px-6 py-4 text-[10px] font-bold uppercase tracking-[0.15em] text-white hover:bg-lime-400 hover:text-neutral-950">Explore collection <span aria-hidden="true">↗</span></a>
+        <a href="/About" class="text-[10px] font-bold uppercase tracking-[0.15em] hover:text-neutral-500">Discover NOVARA</a>
       </div>
+      <p class="mt-12 hidden text-[10px] font-semibold tracking-[0.18em] text-neutral-400 md:block">01 / 04 <span class="ml-3 inline-block h-px w-14 bg-neutral-300 align-middle"></span></p>
     </div>
-
-    <div class="hero-image">
-      <img
-        src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=85"
-        alt="Modern streetwear fashion model"
-      />
-      <div class="image-caption">NOVARA / COLLECTION 001</div>
-    </div>
-
-    <div class="hero-index">01 / 04</div>
+    <figure data-image-reveal class="group relative h-[420px] overflow-hidden bg-neutral-100 sm:h-[560px] md:h-[min(68vw,680px)]">
+      <img class="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=85" alt="Modern streetwear fashion model" fetchpriority="high" />
+      <figcaption class="absolute bottom-5 left-5 bg-white px-4 py-3 text-[9px] font-bold uppercase tracking-[0.18em] sm:bottom-7 sm:left-7">NOVARA / Collection 001</figcaption>
+    </figure>
   </section>
 
-  <section class="marquee">
-    <div>
-      NOVARA — BE DIFFERENT — STAY ORIGINAL — NOVARA — BE DIFFERENT — STAY ORIGINAL —
+  <div class="overflow-hidden bg-lime-300 py-4 text-center text-[10px] font-black uppercase tracking-[0.2em] sm:py-5 sm:text-xs">
+    NOVARA — Be different — Stay original — NOVARA — Be different — Stay original
+  </div>
+
+  <section data-horizontal-section class="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+    <div class="mb-10 flex flex-col gap-6 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
+      <div><span class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">01 / Our collection</span><h2 data-text-reveal class="mt-4 text-4xl font-black uppercase leading-[0.95] tracking-[-0.06em] sm:text-6xl">Defined by<br />simplicity.</h2></div>
+      <a data-magnetic href="/Projects" class="text-[10px] font-bold uppercase tracking-[0.15em] hover:text-neutral-500">View all products ↗</a>
     </div>
-  </section>
-
-  <section class="collection section-padding">
-    <div class="section-heading reveal">
-      <div>
-        <span class="section-label">01 / OUR COLLECTION</span>
-        <h2 class="section-title">DEFINED BY<br />SIMPLICITY.</h2>
-      </div>
-      <a href="/Projects" class="view-link">VIEW ALL PRODUCTS ↗</a>
-    </div>
-
-    <div class="product-grid">
-      <article class="product-card reveal">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85" alt="Minimal white t-shirt" />
-          <span>01</span>
-        </div>
-        <div class="product-info">
-          <h3>ESSENTIAL TEE</h3>
-          <p>EVERYDAY ESSENTIALS</p>
-        </div>
+    <div data-horizontal-viewport class="overflow-x-auto">
+    <div data-horizontal-track data-stagger class="flex w-max gap-5 pb-2 md:gap-6">
+      <article class="group w-[78vw] shrink-0 sm:w-[52vw] md:w-[48vw] lg:w-[42vw]">
+        <a data-image-reveal data-tilt href="/Projects" class="relative block aspect-[4/5] overflow-hidden bg-neutral-100"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85" alt="Minimal white T-shirt" loading="lazy" /><span class="absolute left-4 top-4 bg-white px-3 py-2 text-[10px]">01</span></a>
+        <div class="flex items-start justify-between pt-4"><div><h3 class="text-sm font-bold uppercase tracking-wide">Essential tee</h3><p class="mt-1 text-[9px] font-semibold tracking-[0.16em] text-neutral-500">EVERYDAY ESSENTIALS</p></div><span aria-hidden="true" class="text-lg">↗</span></div>
       </article>
-
-      <article class="product-card reveal">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85" alt="Minimal hoodie" />
-          <span>02</span>
-        </div>
-        <div class="product-info">
-          <h3>OVERSIZED HOODIE</h3>
-          <p>MODERN COMFORT</p>
-        </div>
+      <article class="group w-[78vw] shrink-0 sm:w-[52vw] md:w-[48vw] lg:w-[42vw]">
+        <a data-image-reveal data-tilt href="/Projects" class="relative block aspect-[4/5] overflow-hidden bg-neutral-100"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85" alt="Minimal hoodie" loading="lazy" /><span class="absolute left-4 top-4 bg-white px-3 py-2 text-[10px]">02</span></a>
+        <div class="flex items-start justify-between pt-4"><div><h3 class="text-sm font-bold uppercase tracking-wide">Oversized hoodie</h3><p class="mt-1 text-[9px] font-semibold tracking-[0.16em] text-neutral-500">MODERN COMFORT</p></div><span aria-hidden="true" class="text-lg">↗</span></div>
       </article>
-
-      <article class="product-card reveal">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=85" alt="Streetwear outfit" />
-          <span>03</span>
-        </div>
-        <div class="product-info">
-          <h3>URBAN SERIES</h3>
-          <p>STREET CULTURE</p>
-        </div>
+      <article class="group w-[78vw] shrink-0 sm:w-[52vw] md:w-[48vw] lg:w-[42vw]">
+        <a data-image-reveal data-tilt href="/Projects" class="relative block aspect-[4/5] overflow-hidden bg-neutral-100"><img class="h-full w-full object-cover transition duration-700 group-hover:scale-105" src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=900&q=85" alt="Contemporary streetwear outfit" loading="lazy" /><span class="absolute left-4 top-4 bg-white px-3 py-2 text-[10px]">03</span></a>
+        <div class="flex items-start justify-between pt-4"><div><h3 class="text-sm font-bold uppercase tracking-wide">Urban series</h3><p class="mt-1 text-[9px] font-semibold tracking-[0.16em] text-neutral-500">STREET CULTURE</p></div><span aria-hidden="true" class="text-lg">↗</span></div>
       </article>
     </div>
-  </section>
-
-  <section class="statement">
-    <div class="statement-content reveal">
-      <span class="section-label">THE NOVARA PHILOSOPHY</span>
-      <h2>LESS NOISE.<br />MORE <span>IDENTITY.</span></h2>
-      <p>
-        We believe great style doesn't need to be complicated.
-        Every detail matters. Every design has a purpose.
-      </p>
-      <a href="/About" class="btn-white">OUR STORY ↗</a>
     </div>
   </section>
 
-  <section class="feature section-padding">
-    <div class="feature-image reveal">
-      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85" alt="Fashion editorial clothing collection" />
-    </div>
-    <div class="feature-content reveal">
-      <span class="section-label">02 / OUR VISION</span>
-      <h2 class="section-title">FASHION<br />WITHOUT<br />LIMITS.</h2>
-      <p>
-        NOVARA is built for individuals who express themselves
-        through simplicity, confidence, and timeless fashion.
-        Our vision is to create clothing that feels authentic
-        and looks effortless.
-      </p>
-      <a href="/About" class="view-link">LEARN MORE ↗</a>
-    </div>
+  <section class="bg-neutral-950 px-5 py-20 text-center text-white sm:px-8 sm:py-32">
+    <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-400">The NOVARA philosophy</span>
+    <h2 data-text-reveal class="mx-auto mt-6 text-5xl font-black uppercase leading-[0.9] tracking-[-0.07em] sm:text-7xl lg:text-8xl">Less noise.<br />More <span data-scrub class="text-lime-300">identity.</span></h2>
+    <p class="mx-auto mt-6 max-w-lg text-sm leading-7 text-neutral-400">We believe great style doesn't need to be complicated. Every detail matters. Every design has a purpose.</p>
+    <a data-magnetic href="/About" class="mt-8 inline-flex items-center gap-3 bg-white px-6 py-4 text-[10px] font-bold uppercase tracking-[0.15em] text-neutral-950 hover:bg-lime-300">Our story ↗</a>
   </section>
 
-  <section class="home-cta">
-    <span class="section-label">YOUR STYLE. YOUR STATEMENT.</span>
-    <h2>MAKE IT<br />YOUR OWN.</h2>
-    <a href="/Contact" class="btn-white">CONNECT WITH US ↗</a>
+  <section class="mx-auto grid max-w-[1440px] gap-10 px-5 py-20 sm:px-8 sm:py-28 md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-16 lg:px-12">
+    <div data-image-reveal class="h-[380px] overflow-hidden bg-neutral-100 sm:h-[520px]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85" alt="Fashion editorial clothing collection" loading="lazy" /></div>
+    <div><span class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">02 / Our vision</span><h2 data-text-reveal class="mt-5 text-5xl font-black uppercase leading-[0.9] tracking-[-0.06em] sm:text-7xl">Fashion<br />without<br />limits.</h2><p data-reveal class="mt-6 max-w-md text-sm leading-7 text-neutral-600">NOVARA is built for individuals who express themselves through simplicity, confidence, and timeless fashion. Our vision is to create clothing that feels authentic and looks effortless.</p><a data-magnetic href="/About" class="mt-7 inline-block text-[10px] font-bold uppercase tracking-[0.15em] hover:text-neutral-500">Learn more ↗</a></div>
   </section>
 
+  <section class="bg-neutral-100 px-5 py-20 text-center sm:px-8 sm:py-28">
+    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">Your style. Your statement.</span>
+    <h2 data-text-reveal class="mt-5 text-5xl font-black uppercase leading-[0.9] tracking-[-0.07em] sm:text-7xl">Make it<br />your own.</h2>
+    <a data-magnetic href="/Contact" class="mt-8 inline-flex items-center gap-3 bg-neutral-950 px-6 py-4 text-[10px] font-bold uppercase tracking-[0.15em] text-white hover:bg-lime-400 hover:text-neutral-950">Connect with us ↗</a>
+  </section>
 </BaseLayout>
-
-<style>
-  .hero {
-    min-height: 690px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 65px 7%;
-    position: relative;
-    gap: 55px;
-  }
-
-  .hero h1 {
-    font-size: clamp(55px, 7vw, 100px);
-    line-height: .95;
-    letter-spacing: -7px;
-    font-weight: 900;
-    margin: 25px 0;
-  }
-
-  .hero h1 span {
-    color: #999;
-  }
-
-  .hero-content > p {
-    color: #777;
-    font-size: 14px;
-    max-width: 400px;
-    line-height: 1.9;
-  }
-
-  .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    margin-top: 35px;
-  }
-
-  .btn-black, .btn-white {
-    padding: 18px 25px;
-    background: black;
-    color: white;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    display: inline-block;
-  }
-
-  .btn-text, .view-link {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-
-  .hero-image {
-    height: 530px;
-    position: relative;
-  }
-
-  .hero-image img, .feature-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .image-caption {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-    font-size: 10px;
-    letter-spacing: 2px;
-  }
-
-  .hero-index {
-    position: absolute;
-    bottom: 25px;
-    left: 7%;
-    font-size: 10px;
-    letter-spacing: 2px;
-  }
-
-  .marquee {
-    background: black;
-    color: white;
-    padding: 22px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 4px;
-  }
-
-  .marquee div {
-    animation: slide 25s linear infinite;
-  }
-
-  @keyframes slide {
-    to { transform: translateX(-30%); }
-  }
-
-  .section-padding {
-    padding: 110px 7%;
-  }
-
-  .section-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 55px;
-  }
-
-  .section-heading .section-title {
-    margin-top: 20px;
-  }
-
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-  }
-
-  .product-image {
-    height: 420px;
-    background: #eee;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform .7s;
-  }
-
-  .product-card:hover img {
-    transform: scale(1.05);
-  }
-
-  .product-image span {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: white;
-    padding: 9px 12px;
-    font-size: 10px;
-  }
-
-  .product-info {
-    padding-top: 20px;
-  }
-
-  .product-info h3 {
-    font-size: 13px;
-    letter-spacing: 1px;
-  }
-
-  .product-info p {
-    color: #888;
-    font-size: 9px;
-    letter-spacing: 2px;
-    margin-top: 9px;
-  }
-
-  .statement {
-    background: #080808;
-    color: white;
-    padding: 130px 7%;
-    text-align: center;
-  }
-
-  .statement h2, .home-cta h2 {
-    font-size: clamp(50px, 8vw, 100px);
-    line-height: .95;
-    letter-spacing: -5px;
-    margin: 30px 0;
-    font-weight: 900;
-  }
-
-  .statement h2 span {
-    color: #888;
-  }
-
-  .statement p {
-    color: #999;
-    max-width: 500px;
-    margin: 0 auto 35px;
-    font-size: 13px;
-    line-height: 2;
-  }
-
-  .statement .section-label {
-    color: #888;
-  }
-
-  .btn-white {
-    background: white;
-    color: black;
-  }
-
-  .feature {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    align-items: center;
-    gap: 90px;
-  }
-
-  .feature-image {
-    height: 520px;
-    background: #eee;
-  }
-
-  .feature-content .section-title {
-    margin: 25px 0;
-  }
-
-  .feature-content p {
-    font-size: 13px;
-    color: #777;
-    line-height: 2;
-    max-width: 420px;
-    margin-bottom: 30px;
-  }
-
-  .home-cta {
-    background: #f1f1f1;
-    padding: 110px 7%;
-    text-align: center;
-  }
-
-  .home-cta h2 {
-    color: black;
-  }
-
-  @media(max-width: 750px) {
-    .hero, .feature {
-      grid-template-columns: 1fr;
-    }
-
-    .hero {
-      padding-top: 70px;
-      gap: 40px;
-    }
-
-    .hero h1 {
-      letter-spacing: -4px;
-    }
-
-    .hero-image {
-      height: 430px;
-    }
-
-    .hero-index {
-      display: none;
-    }
-
-    .product-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .product-image {
-      height: 300px;
-    }
-
-    .feature {
-      gap: 40px;
-    }
-
-    .feature-image {
-      height: 400px;
-    }
-
-    .section-heading {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 25px;
-    }
-  }
-
-  @media(max-width: 480px) {
-    .product-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .product-image {
-      height: 420px;
-    }
-
-    .statement h2, .home-cta h2 {
-      letter-spacing: -3px;
-    }
-  }
-</style>

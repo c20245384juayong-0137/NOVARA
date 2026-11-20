@@ -1,186 +1,41 @@
-
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Contact | NOVARA">
-
-  <section class="contact-hero">
-    <span class="section-label">LET'S CONNECT / 05</span>
-    <h1>LET'S TALK<br /><span>FASHION.</span></h1>
-    <p>Have questions or want to know more about NOVARA? We'd love to hear from you.</p>
+  <section class="bg-neutral-100 px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+    <div class="mx-auto max-w-[1440px]">
+      <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-500">Let's connect / 05</span>
+      <h1 data-text-reveal class="mt-7 text-[clamp(3.7rem,11vw,9rem)] font-black uppercase leading-[0.84] tracking-[-0.08em]">Let's talk<br /><span class="text-neutral-400">fashion.</span></h1>
+      <p class="mt-8 max-w-lg text-sm leading-7 text-neutral-600 sm:text-base">Have questions or want to know more about NOVARA? We'd love to hear from you.</p>
+    </div>
   </section>
-
-  <section class="contact-content">
-
-    <div class="contact-info">
-      <span class="section-label">GET IN TOUCH</span>
-      <h2>START A<br />CONVERSATION.</h2>
-
-      <div class="info-item">
-        <span>EMAIL</span>
-        <p>hello@novara.com</p>
-      </div>
-
-      <div class="info-item">
-        <span>LOCATION</span>
-        <p>Philippines</p>
-      </div>
-
-      <div class="info-item">
-        <span>SOCIAL MEDIA</span>
-        <p>Instagram / Facebook</p>
+  <section data-stagger class="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 sm:px-8 sm:py-28 md:grid-cols-2 md:gap-20 lg:px-12">
+    <div>
+      <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">Get in touch</span>
+      <h2 data-text-reveal class="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-[-0.06em] sm:text-5xl">Start a<br />conversation.</h2>
+      <div class="mt-12 divide-y divide-neutral-200 border-y border-neutral-200">
+        <div class="py-5"><span class="text-[10px] font-bold tracking-[0.17em]">EMAIL</span><p class="mt-2 text-sm text-neutral-600">hello@novara.com</p></div>
+        <div class="py-5"><span class="text-[10px] font-bold tracking-[0.17em]">LOCATION</span><p class="mt-2 text-sm text-neutral-600">Philippines</p></div>
+        <div class="py-5"><span class="text-[10px] font-bold tracking-[0.17em]">SOCIAL MEDIA</span><p class="mt-2 text-sm text-neutral-600">Instagram / Facebook</p></div>
       </div>
     </div>
-
-    <form class="contact-form" action="https://formsubmit.co/your-email@example.com" method="POST">
+    <form class="flex flex-col" action="https://formsubmit.co/your-email@example.com" method="POST">
       <input type="hidden" name="_subject" value="New NOVARA Website Inquiry" />
       <input type="hidden" name="_captcha" value="true" />
-
-      <label for="name">YOUR NAME</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required />
-
-      <label for="email">EMAIL ADDRESS</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
-
-      <label for="subject">SUBJECT</label>
-      <input type="text" id="subject" name="subject" placeholder="What is this about?" required />
-
-      <label for="message">YOUR MESSAGE</label>
-      <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
-
-      <button type="submit">SEND MESSAGE ↗</button>
+      <label class="mb-2 text-[10px] font-bold tracking-[0.17em]" for="name">YOUR NAME</label>
+      <input class="mb-7 border-b border-neutral-300 bg-transparent px-0 py-3 text-sm outline-none placeholder:text-neutral-400 focus:border-neutral-950 focus:ring-0" type="text" id="name" name="name" placeholder="Enter your name" autocomplete="name" required />
+      <label class="mb-2 text-[10px] font-bold tracking-[0.17em]" for="email">EMAIL ADDRESS</label>
+      <input class="mb-7 border-b border-neutral-300 bg-transparent px-0 py-3 text-sm outline-none placeholder:text-neutral-400 focus:border-neutral-950 focus:ring-0" type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required />
+      <label class="mb-2 text-[10px] font-bold tracking-[0.17em]" for="subject">SUBJECT</label>
+      <input class="mb-7 border-b border-neutral-300 bg-transparent px-0 py-3 text-sm outline-none placeholder:text-neutral-400 focus:border-neutral-950 focus:ring-0" type="text" id="subject" name="subject" placeholder="What is this about?" required />
+      <label class="mb-2 text-[10px] font-bold tracking-[0.17em]" for="message">YOUR MESSAGE</label>
+      <textarea class="mb-8 resize-y border-b border-neutral-300 bg-transparent px-0 py-3 text-sm outline-none placeholder:text-neutral-400 focus:border-neutral-950 focus:ring-0" id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+      <button data-magnetic class="inline-flex items-center justify-center gap-3 bg-neutral-950 px-6 py-4 text-[10px] font-bold tracking-[0.15em] text-white transition hover:bg-lime-400 hover:text-neutral-950" type="submit">SEND MESSAGE <span aria-hidden="true">↗</span></button>
     </form>
-
   </section>
-
-  <section class="contact-bottom">
-    <h2>THANK YOU FOR<br />CHOOSING NOVARA.</h2>
-    <p>MINIMAL DESIGN. TIMELESS IDENTITY.</p>
+  <section class="bg-neutral-950 px-5 py-20 text-center text-white sm:px-8 sm:py-28">
+    <h2 data-text-reveal class="text-4xl font-black uppercase leading-[0.92] tracking-[-0.06em] sm:text-6xl">Thank you for<br />choosing NOVARA.</h2>
+    <p class="mt-6 text-[10px] font-semibold tracking-[0.2em] text-neutral-400">MINIMAL DESIGN. TIMELESS IDENTITY.</p>
   </section>
-
 </BaseLayout>
-
-<style>
-  .contact-hero {
-    background: #f3f3f3;
-    padding: 120px 7%;
-  }
-
-  .contact-hero h1 {
-    font-size: clamp(60px, 11vw, 135px);
-    font-weight: 900;
-    line-height: .9;
-    letter-spacing: -8px;
-    margin: 35px 0;
-  }
-
-  .contact-hero h1 span { color: #999; }
-
-  .contact-hero p {
-    color: #777;
-    max-width: 430px;
-    font-size: 14px;
-    line-height: 1.9;
-  }
-
-  .contact-content {
-    padding: 120px 7%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-  }
-
-  .contact-info h2 {
-    font-size: 55px;
-    line-height: .95;
-    letter-spacing: -3px;
-    margin: 30px 0 55px;
-  }
-
-  .info-item {
-    border-top: 1px solid #ddd;
-    padding: 22px 0;
-  }
-
-  .info-item span, .contact-form label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    font-weight: 700;
-  }
-
-  .info-item p {
-    color: #777;
-    font-size: 13px;
-    margin-top: 12px;
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .contact-form label { margin-bottom: 12px; }
-
-  .contact-form input,
-  .contact-form textarea {
-    padding: 16px 0;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 30px;
-    outline: none;
-    font-family: inherit;
-    font-size: 13px;
-    resize: vertical;
-  }
-
-  .contact-form input:focus,
-  .contact-form textarea:focus {
-    border-color: black;
-  }
-
-  .contact-form button {
-    border: none;
-    background: black;
-    color: white;
-    padding: 20px;
-    font-weight: 700;
-    font-size: 10px;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: .3s;
-  }
-
-  .contact-form button:hover {
-    background: #444;
-  }
-
-  .contact-bottom {
-    background: #080808;
-    color: white;
-    padding: 100px 7%;
-    text-align: center;
-  }
-
-  .contact-bottom h2 {
-    font-size: clamp(40px, 7vw, 75px);
-    letter-spacing: -4px;
-    line-height: .95;
-  }
-
-  .contact-bottom p {
-    font-size: 10px;
-    color: #888;
-    letter-spacing: 3px;
-    margin-top: 30px;
-  }
-
-  @media(max-width: 750px) {
-    .contact-content {
-      grid-template-columns: 1fr;
-      gap: 55px;
-    }
-
-    .contact-hero h1 { letter-spacing: -4px; }
-  }
-</style>

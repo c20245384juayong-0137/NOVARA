@@ -1,143 +1,25 @@
-
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="About | NOVARA">
-
-  <section class="about-hero">
-    <span class="section-label">GET TO KNOW US / 01</span>
-    <h1>WE ARE<br /><span>NOVARA.</span></h1>
-    <p>A modern clothing brand built around individuality, simplicity, and timeless style.</p>
-  </section>
-
-  <section class="about-image">
-    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85" alt="NOVARA fashion editorial" />
-  </section>
-
-  <section class="about-story">
-    <div>
-      <span class="section-label">OUR STORY</span>
-      <h2>STYLE IS<br />PERSONAL.</h2>
-    </div>
-    <div>
-      <p>
-        NOVARA represents a new perspective on everyday fashion.
-        We believe clothing is more than something you wear.
-        It is an expression of who you are.
-      </p>
-      <p>
-        Inspired by minimalism and modern street culture,
-        NOVARA creates a visual identity that values simplicity,
-        quality, and individuality.
-      </p>
+  <section class="bg-neutral-100 px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+    <div class="mx-auto max-w-[1440px]">
+      <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-500">Get to know us / 01</span>
+      <h1 data-text-reveal class="mt-7 text-[clamp(4rem,12vw,10rem)] font-black uppercase leading-[0.82] tracking-[-0.08em]">We are<br /><span class="text-neutral-400">NOVARA.</span></h1>
+      <p class="mt-8 max-w-lg text-sm leading-7 text-neutral-600 sm:text-base">A modern clothing brand built around individuality, simplicity, and timeless style.</p>
     </div>
   </section>
-
-  <section class="values">
-    <div class="value-card">
-      <span>01</span>
-      <h3>SIMPLICITY</h3>
-      <p>Clean designs that communicate without unnecessary details.</p>
-    </div>
-    <div class="value-card">
-      <span>02</span>
-      <h3>IDENTITY</h3>
-      <p>Clothing that allows individuals to express their personality.</p>
-    </div>
-    <div class="value-card">
-      <span>03</span>
-      <h3>QUALITY</h3>
-      <p>Thoughtful design with attention to every detail.</p>
+  <figure data-image-reveal class="h-[360px] overflow-hidden bg-neutral-200 sm:h-[500px] lg:h-[640px]"><img class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85" alt="NOVARA fashion editorial" loading="lazy" /></figure>
+  <section class="mx-auto grid max-w-[1440px] gap-8 px-5 py-20 sm:px-8 sm:py-28 md:grid-cols-2 md:gap-20 lg:px-12">
+    <div><span class="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-500">Our story</span><h2 data-text-reveal class="mt-5 text-5xl font-black uppercase leading-[0.9] tracking-[-0.06em] sm:text-6xl">Style is<br />personal.</h2></div>
+    <div data-reveal class="max-w-xl text-sm leading-7 text-neutral-600"><p>NOVARA represents a new perspective on everyday fashion. We believe clothing is more than something you wear. It is an expression of who you are.</p><p class="mt-5">Inspired by minimalism and modern street culture, NOVARA creates a visual identity that values simplicity, quality, and individuality.</p></div>
+  </section>
+  <section class="bg-neutral-950 text-white">
+    <div data-stagger class="mx-auto grid max-w-[1440px] gap-px bg-white/15 px-5 py-12 sm:px-8 md:grid-cols-3 lg:px-12">
+      <article class="bg-neutral-950 py-8 md:pr-10"><span class="text-xs text-neutral-500">01</span><h3 class="mt-9 text-xl font-bold tracking-wide">SIMPLICITY</h3><p class="mt-3 max-w-xs text-sm leading-6 text-neutral-400">Clean designs that communicate without unnecessary details.</p></article>
+      <article class="bg-neutral-950 py-8 md:px-10"><span class="text-xs text-neutral-500">02</span><h3 class="mt-9 text-xl font-bold tracking-wide">IDENTITY</h3><p class="mt-3 max-w-xs text-sm leading-6 text-neutral-400">Clothing that allows individuals to express their personality.</p></article>
+      <article class="bg-neutral-950 py-8 md:pl-10"><span class="text-xs text-neutral-500">03</span><h3 class="mt-9 text-xl font-bold tracking-wide">QUALITY</h3><p class="mt-3 max-w-xs text-sm leading-6 text-neutral-400">Thoughtful design with attention to every detail.</p></article>
     </div>
   </section>
-
 </BaseLayout>
-
-<style>
-  .about-hero {
-    padding: 120px 7%;
-    background: #f5f5f5;
-  }
-
-  .about-hero h1 {
-    font-size: clamp(65px, 12vw, 150px);
-    font-weight: 900;
-    line-height: .85;
-    letter-spacing: -9px;
-    margin: 35px 0;
-  }
-
-  .about-hero h1 span { color: #999; }
-
-  .about-hero p {
-    max-width: 450px;
-    color: #777;
-    line-height: 2;
-    font-size: 14px;
-  }
-
-  .about-image {
-    height: 570px;
-  }
-
-  .about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .about-story {
-    padding: 120px 7%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-  }
-
-  .about-story h2 {
-    font-size: 65px;
-    font-weight: 900;
-    letter-spacing: -4px;
-    line-height: .95;
-    margin-top: 25px;
-  }
-
-  .about-story p {
-    color: #777;
-    font-size: 14px;
-    line-height: 2;
-    margin-bottom: 25px;
-  }
-
-  .values {
-    padding: 80px 7%;
-    background: #080808;
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-
-  .value-card span {
-    color: #777;
-    font-size: 12px;
-  }
-
-  .value-card h3 {
-    font-size: 20px;
-    margin: 30px 0 15px;
-    letter-spacing: 1px;
-  }
-
-  .value-card p {
-    color: #888;
-    font-size: 12px;
-    line-height: 1.9;
-  }
-
-  @media(max-width: 650px) {
-    .about-hero h1 { letter-spacing: -4px; }
-    .about-story, .values { grid-template-columns: 1fr; gap: 40px; }
-    .about-image { height: 350px; }
-  }
-</style>

@@ -1,4 +1,3 @@
-
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -11,123 +10,27 @@ const services = [
 ---
 
 <BaseLayout title="Services | NOVARA">
-
-  <section class="services-hero">
-    <span class="section-label">WHAT WE OFFER / 03</span>
-    <h1>MADE FOR<br /><span>YOUR STYLE.</span></h1>
-    <p>Discover clothing designed to complement your everyday identity.</p>
+  <section class="bg-neutral-100 px-5 py-20 sm:px-8 sm:py-28 lg:px-12">
+    <div class="mx-auto max-w-[1440px]">
+      <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-500">What we offer / 03</span>
+      <h1 data-text-reveal class="mt-7 text-[clamp(3.8rem,11vw,9rem)] font-black uppercase leading-[0.84] tracking-[-0.08em]">Made for<br /><span class="text-neutral-400">your style.</span></h1>
+      <p class="mt-8 text-sm leading-7 text-neutral-600">Discover clothing designed to complement your everyday identity.</p>
+    </div>
   </section>
-
-  <section class="services-list">
-    {services.map((service) => (
-      <article class="service">
-        <span>{service.number}</span>
-        <h2>{service.title}</h2>
-        <p>{service.description}</p>
-        <span class="arrow">↗</span>
-      </article>
-    ))}
+  <section class="mx-auto max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
+    <div data-stagger class="divide-y divide-neutral-200 border-y border-neutral-200">
+      {services.map((service) => (
+        <article class="grid grid-cols-[2rem_1fr_auto] items-start gap-4 py-7 sm:grid-cols-[3.5rem_1fr_1fr_auto] sm:items-center sm:gap-6 sm:py-9">
+          <span class="pt-1 text-xs text-neutral-400">{service.number}</span>
+          <h2 class="text-lg font-bold uppercase tracking-tight sm:text-xl">{service.title}</h2>
+          <p class="col-start-2 text-sm leading-6 text-neutral-600 sm:col-start-auto">{service.description}</p>
+          <span class="row-start-1 text-xl sm:row-auto" aria-hidden="true">↗</span>
+        </article>
+      ))}
+    </div>
   </section>
-
-  <section class="services-banner">
-    <h2>SIMPLICITY<br />IS THE NEW<br />STATEMENT.</h2>
-    <a href="/Projects">EXPLORE OUR COLLECTION ↗</a>
+  <section class="bg-neutral-950 px-5 py-20 text-center text-white sm:px-8 sm:py-28">
+    <h2 data-text-reveal class="text-5xl font-black uppercase leading-[0.9] tracking-[-0.07em] sm:text-7xl">Simplicity<br />is the new<br /><span class="text-lime-300">statement.</span></h2>
+    <a data-magnetic class="mt-9 inline-flex items-center gap-3 border border-white/60 px-6 py-4 text-[10px] font-bold uppercase tracking-[0.15em] hover:border-lime-300 hover:bg-lime-300 hover:text-neutral-950" href="/Projects">Explore our collection <span aria-hidden="true">↗</span></a>
   </section>
-
 </BaseLayout>
-
-<style>
-  .services-hero {
-    padding: 130px 7%;
-    background: #f3f3f3;
-  }
-
-  .services-hero h1 {
-    font-size: clamp(60px, 11vw, 130px);
-    font-weight: 900;
-    letter-spacing: -8px;
-    line-height: .9;
-    margin: 35px 0;
-  }
-
-  .services-hero h1 span { color: #999; }
-
-  .services-hero p {
-    color: #777;
-    font-size: 14px;
-  }
-
-  .services-list { padding: 80px 7% 120px; }
-
-  .service {
-    display: grid;
-    grid-template-columns: 70px 1fr 1fr 30px;
-    gap: 25px;
-    align-items: center;
-    padding: 35px 0;
-    border-bottom: 1px solid #ddd;
-  }
-
-  .service > span:first-child {
-    color: #999;
-    font-size: 12px;
-  }
-
-  .service h2 {
-    font-size: clamp(17px, 2vw, 24px);
-    letter-spacing: -1px;
-  }
-
-  .service p {
-    color: #888;
-    font-size: 12px;
-    line-height: 1.8;
-  }
-
-  .arrow { font-size: 20px; }
-
-  .services-banner {
-    padding: 110px 7%;
-    background: #080808;
-    color: white;
-    text-align: center;
-  }
-
-  .services-banner h2 {
-    font-size: clamp(50px, 9vw, 95px);
-    line-height: .95;
-    letter-spacing: -5px;
-    margin-bottom: 40px;
-  }
-
-  .services-banner a {
-    display: inline-block;
-    border: 1px solid white;
-    padding: 18px 25px;
-    font-size: 10px;
-    letter-spacing: 2px;
-  }
-
-  .services-banner a:hover {
-    background: white;
-    color: black;
-  }
-
-  @media(max-width: 650px) {
-    .service {
-      grid-template-columns: 35px 1fr 25px;
-      gap: 12px;
-    }
-
-    .service p {
-      grid-column: 2;
-    }
-
-    .service .arrow {
-      grid-column: 3;
-      grid-row: 1;
-    }
-
-    .services-hero h1 { letter-spacing: -4px; }
-  }
-</style>

@@ -1,5 +1,7 @@
 
 ---
+import "../styles/global.css";
+
 const { title = "NOVARA | Modern Streetwear", description = "NOVARA — Minimalist streetwear for modern individuals." } = Astro.props;
 
 const navLinks = [
@@ -21,53 +23,56 @@ const navLinks = [
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   </head>
 
-  <body>
-    <header class="navbar">
-      <a href="/" class="brand">
-        <span class="brand-symbol">N</span>
-        <span>NOVARA</span>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-50 border-b border-neutral-200/80 bg-white/95 backdrop-blur">
+      <div class="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
+      <a href="/" class="flex items-center gap-3 text-lg font-black tracking-[0.24em]" aria-label="NOVARA home">
+        <span class="grid size-9 place-items-center bg-neutral-950 text-lg font-bold tracking-normal text-white">N</span>
+        <span>NOVARA<span class="text-lime-600">.</span></span>
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links absolute left-0 right-0 top-[75px] hidden flex-col gap-1 border-b border-neutral-200 bg-white px-5 py-5 sm:px-8 md:static md:flex md:flex-row md:items-center md:gap-7 md:border-0 md:bg-transparent md:p-0 lg:gap-9" id="primary-navigation" aria-label="Main navigation">
         {navLinks.map((link) => (
-          <a href={link.href} class:list={{ active: Astro.url.pathname === link.href || (link.href !== "/" && Astro.url.pathname.toLowerCase() === link.href.toLowerCase()) }}>
+          <a href={link.href} aria-current={Astro.url.pathname.toLowerCase() === link.href.toLowerCase() ? "page" : undefined} class:list={["py-2 text-[11px] font-bold tracking-[0.14em] text-neutral-600 hover:text-neutral-950 md:py-3", { "text-neutral-950": Astro.url.pathname.toLowerCase() === link.href.toLowerCase() }]}>
             {link.name}
           </a>
         ))}
       </nav>
 
-      <a href="/Contact" class="nav-button">GET IN TOUCH ↗</a>
+      <a href="/Contact" class="hidden items-center gap-2 bg-neutral-950 px-5 py-3 text-[10px] font-bold tracking-[0.13em] text-white hover:bg-lime-400 hover:text-neutral-950 md:inline-flex">LET'S TALK <span aria-hidden="true">↗</span></a>
 
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
+      <button class="menu-toggle grid size-11 place-items-center border border-neutral-200 md:hidden" aria-label="Open navigation" aria-controls="primary-navigation" aria-expanded="false">
+        <span class="flex flex-col gap-1.5" aria-hidden="true"><span class="h-0.5 w-5 bg-neutral-950"></span><span class="h-0.5 w-5 bg-neutral-950"></span></span>
       </button>
+      </div>
     </header>
 
-    <main>
+    <main class="min-h-[60vh]">
       <slot />
     </main>
 
-    <footer class="footer">
-      <div class="footer-top">
-        <div>
-          <a href="/" class="footer-brand">NOVARA<span>®</span></a>
-          <p>Minimal design. Maximum expression.</p>
+    <footer class="bg-neutral-950 text-white">
+      <div class="mx-auto max-w-[1440px] px-5 pb-8 pt-16 sm:px-8 lg:px-12 lg:pt-20">
+        <div class="flex flex-col justify-between gap-10 border-b border-white/15 pb-12 md:flex-row md:items-start">
+          <div>
+            <a href="/" class="text-3xl font-black tracking-[0.2em]">NOVARA<span class="text-lime-400">.</span></a>
+            <p class="mt-4 text-sm text-neutral-400">Minimal design. Maximum expression.</p>
+          </div>
+          <nav class="flex flex-wrap gap-x-7 gap-y-4 text-xs font-medium text-neutral-400" aria-label="Footer navigation">
+            <a class="hover:text-white" href="/">Home</a>
+            <a class="hover:text-white" href="/About">About</a>
+            <a class="hover:text-white" href="/Projects">Collection</a>
+            <a class="hover:text-white" href="/Process">Process</a>
+            <a class="hover:text-white" href="/Contact">Contact</a>
+          </nav>
         </div>
-        <div class="footer-links">
-          <a href="/">Home</a>
-          <a href="/About">About</a>
-          <a href="/Projects">Collection</a>
-          <a href="/Contact">Contact</a>
+        <div class="flex flex-col gap-3 pt-6 text-[9px] font-semibold tracking-[0.16em] text-neutral-500 sm:flex-row sm:justify-between">
+          <p>© 2026 NOVARA. ALL RIGHTS RESERVED.</p>
+          <p>DESIGNED FOR THE MODERN GENERATION.</p>
         </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>© 2026 NOVARA. ALL RIGHTS RESERVED.</p>
-        <p>DESIGNED FOR THE MODERN GENERATION.</p>
       </div>
     </footer>
 
@@ -77,282 +82,23 @@ const navLinks = [
 
       toggle?.addEventListener("click", () => {
         const isOpen = nav?.classList.toggle("show");
+        nav?.classList.toggle("hidden", !isOpen);
+        nav?.classList.toggle("flex", Boolean(isOpen));
         toggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+        toggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
       });
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
+      nav?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          nav.classList.remove("show", "flex");
+          nav.classList.add("hidden");
+          toggle?.setAttribute("aria-expanded", "false");
+          toggle?.setAttribute("aria-label", "Open navigation");
         });
-      }, { threshold: 0.12 });
-
-      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      });
+    </script>
+    <script>
+      import "../scripts/animations";
     </script>
   </body>
 </html>
-
-<style is:global>
-  :root {
-    --black: #090909;
-    --white: #ffffff;
-    --gray: #777777;
-    --light-gray: #eeeeee;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background: var(--white);
-    color: var(--black);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-  }
-
-  .navbar {
-    height: 85px;
-    padding: 0 7%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    border-bottom: 1px solid #eeeeee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 21px;
-    font-weight: 900;
-    letter-spacing: 5px;
-  }
-
-  .brand-symbol {
-    width: 34px;
-    height: 34px;
-    background: #000;
-    color: #fff;
-    display: grid;
-    place-items: center;
-    font-size: 22px;
-    letter-spacing: -2px;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-
-  .nav-links a {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    transition: opacity .3s;
-  }
-
-  .nav-links a:hover,
-  .nav-links a.active {
-    opacity: .45;
-  }
-
-  .nav-button {
-    background: #000;
-    color: #fff;
-    padding: 15px 22px;
-    font-size: 10px;
-    letter-spacing: 1px;
-    font-weight: 700;
-    transition: .3s;
-  }
-
-  .nav-button:hover {
-    background: #444;
-  }
-
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    margin: 6px;
-    background: #000;
-  }
-
-  .section-label {
-    font-size: 10px;
-    letter-spacing: 3px;
-    font-weight: 700;
-    color: #777;
-    text-transform: uppercase;
-  }
-
-  .section-title {
-    font-size: clamp(35px, 5vw, 65px);
-    font-weight: 800;
-    letter-spacing: -3px;
-    line-height: 1.05;
-    text-transform: uppercase;
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity .8s ease, transform .8s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .footer {
-    background: #080808;
-    color: white;
-    padding: 75px 7% 25px;
-  }
-
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 65px;
-  }
-
-  .footer-brand {
-    font-size: 36px;
-    font-weight: 900;
-    letter-spacing: 6px;
-  }
-
-  .footer-brand span {
-    font-size: 12px;
-    vertical-align: top;
-  }
-
-  .footer-top p {
-    color: #888;
-    font-size: 12px;
-    margin-top: 15px;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 30px;
-  }
-
-  .footer-links a {
-    color: #aaa;
-    font-size: 11px;
-  }
-
-  .footer-links a:hover {
-    color: white;
-  }
-
-  .footer-bottom {
-    border-top: 1px solid #292929;
-    padding-top: 25px;
-    display: flex;
-    justify-content: space-between;
-    color: #777;
-    font-size: 9px;
-    letter-spacing: 1.5px;
-  }
-
-  @media(max-width: 900px) {
-    .navbar {
-      padding: 0 5%;
-    }
-
-    .nav-links {
-      gap: 15px;
-    }
-
-    .nav-links a {
-      font-size: 9px;
-    }
-
-    .nav-button {
-      display: none;
-    }
-  }
-
-  @media(max-width: 650px) {
-    .navbar {
-      height: 72px;
-    }
-
-    .menu-toggle {
-      display: block;
-    }
-
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 72px;
-      left: 0;
-      width: 100%;
-      background: white;
-      padding: 25px 7%;
-      flex-direction: column;
-      align-items: flex-start;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .nav-links.show {
-      display: flex;
-    }
-
-    .nav-links a {
-      font-size: 12px;
-      padding: 8px 0;
-    }
-
-    .footer-top {
-      flex-direction: column;
-      gap: 40px;
-    }
-
-    .footer-links {
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      gap: 12px;
-      line-height: 1.6;
-    }
-  }
-</style>
