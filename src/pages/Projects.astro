@@ -1,0 +1,144 @@
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const products = [
+  { name: "Essential White Tee", category: "ESSENTIALS", number: "01", image: "photo-1521572163474-6864f9cf17ab" },
+  { name: "Classic Black Tee", category: "ESSENTIALS", number: "02", image: "photo-1503341504253-dff4815485f1" },
+  { name: "Oversized Hoodie", category: "OUTERWEAR", number: "03", image: "photo-1556821840-3a63f95609a7" },
+  { name: "Urban Streetwear", category: "STREETWEAR", number: "04", image: "photo-1529139574466-a303027c1d8b" },
+  { name: "Modern Outfit", category: "COLLECTION", number: "05", image: "photo-1483985988355-763728e1935b" },
+  { name: "Minimal Fashion", category: "COLLECTION", number: "06", image: "photo-1539109136881-3be0616acf4b" },
+];
+---
+
+<BaseLayout title="Collection | NOVARA">
+
+  <section class="collection-hero">
+    <span class="section-label">NOVARA / COLLECTION 001</span>
+    <h1>THE ART OF<br /><span>EVERYDAY.</span></h1>
+    <p>Designed with intention. Created for individuality.</p>
+  </section>
+
+  <section class="catalog">
+    <div class="catalog-header">
+      <span>OUR SELECTION</span>
+      <span>06 FEATURED LOOKS</span>
+    </div>
+
+    <div class="catalog-grid">
+      {products.map((product) => (
+        <article class="item">
+          <div class="item-image">
+            <img src={`https://images.unsplash.com/${product.image}?auto=format&fit=crop&w=900&q=85`} alt={product.name} loading="lazy" />
+            <span>{product.number}</span>
+          </div>
+          <div class="item-details">
+            <div>
+              <h3>{product.name}</h3>
+              <p>{product.category}</p>
+            </div>
+            <span>↗</span>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .collection-hero {
+    padding: 120px 7%;
+    background: #f3f3f3;
+  }
+
+  .collection-hero h1 {
+    font-size: clamp(65px, 12vw, 140px);
+    font-weight: 900;
+    letter-spacing: -8px;
+    line-height: .9;
+    margin: 35px 0;
+  }
+
+  .collection-hero h1 span { color: #999; }
+
+  .collection-hero p {
+    color: #777;
+    font-size: 14px;
+  }
+
+  .catalog { padding: 80px 7% 120px; }
+
+  .catalog-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 35px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 25px;
+  }
+
+  .item-image {
+    height: 420px;
+    background: #eee;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s;
+  }
+
+  .item:hover img { transform: scale(1.05); }
+
+  .item-image > span {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: white;
+    padding: 10px;
+    font-size: 10px;
+  }
+
+  .item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .item-details h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+
+  .item-details p {
+    font-size: 9px;
+    color: #888;
+    margin-top: 8px;
+    letter-spacing: 2px;
+  }
+
+  @media(max-width: 750px) {
+    .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+    .item-image { height: 320px; }
+  }
+
+  @media(max-width: 480px) {
+    .catalog-grid { grid-template-columns: 1fr; }
+    .item-image { height: 430px; }
+    .collection-hero h1 { letter-spacing: -4px; }
+  }
+</style>

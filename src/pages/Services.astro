@@ -1,0 +1,133 @@
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+  { number: "01", title: "EVERYDAY WEAR", description: "Minimal clothing designed for everyday comfort and effortless style." },
+  { number: "02", title: "STREETWEAR", description: "Modern streetwear inspired by individuality and urban culture." },
+  { number: "03", title: "BASIC ESSENTIALS", description: "Timeless wardrobe essentials with clean and versatile designs." },
+  { number: "04", title: "EXCLUSIVE COLLECTIONS", description: "Distinctive clothing releases that reflect the NOVARA identity." }
+];
+---
+
+<BaseLayout title="Services | NOVARA">
+
+  <section class="services-hero">
+    <span class="section-label">WHAT WE OFFER / 03</span>
+    <h1>MADE FOR<br /><span>YOUR STYLE.</span></h1>
+    <p>Discover clothing designed to complement your everyday identity.</p>
+  </section>
+
+  <section class="services-list">
+    {services.map((service) => (
+      <article class="service">
+        <span>{service.number}</span>
+        <h2>{service.title}</h2>
+        <p>{service.description}</p>
+        <span class="arrow">↗</span>
+      </article>
+    ))}
+  </section>
+
+  <section class="services-banner">
+    <h2>SIMPLICITY<br />IS THE NEW<br />STATEMENT.</h2>
+    <a href="/Projects">EXPLORE OUR COLLECTION ↗</a>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .services-hero {
+    padding: 130px 7%;
+    background: #f3f3f3;
+  }
+
+  .services-hero h1 {
+    font-size: clamp(60px, 11vw, 130px);
+    font-weight: 900;
+    letter-spacing: -8px;
+    line-height: .9;
+    margin: 35px 0;
+  }
+
+  .services-hero h1 span { color: #999; }
+
+  .services-hero p {
+    color: #777;
+    font-size: 14px;
+  }
+
+  .services-list { padding: 80px 7% 120px; }
+
+  .service {
+    display: grid;
+    grid-template-columns: 70px 1fr 1fr 30px;
+    gap: 25px;
+    align-items: center;
+    padding: 35px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .service > span:first-child {
+    color: #999;
+    font-size: 12px;
+  }
+
+  .service h2 {
+    font-size: clamp(17px, 2vw, 24px);
+    letter-spacing: -1px;
+  }
+
+  .service p {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .arrow { font-size: 20px; }
+
+  .services-banner {
+    padding: 110px 7%;
+    background: #080808;
+    color: white;
+    text-align: center;
+  }
+
+  .services-banner h2 {
+    font-size: clamp(50px, 9vw, 95px);
+    line-height: .95;
+    letter-spacing: -5px;
+    margin-bottom: 40px;
+  }
+
+  .services-banner a {
+    display: inline-block;
+    border: 1px solid white;
+    padding: 18px 25px;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .services-banner a:hover {
+    background: white;
+    color: black;
+  }
+
+  @media(max-width: 650px) {
+    .service {
+      grid-template-columns: 35px 1fr 25px;
+      gap: 12px;
+    }
+
+    .service p {
+      grid-column: 2;
+    }
+
+    .service .arrow {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .services-hero h1 { letter-spacing: -4px; }
+  }
+</style>

@@ -1,17 +1,358 @@
+
 ---
+const { title = "NOVARA | Modern Streetwear", description = "NOVARA — Minimalist streetwear for modern individuals." } = Astro.props;
+
+const navLinks = [
+  { name: "HOME", href: "/" },
+  { name: "ABOUT", href: "/About" },
+  { name: "COLLECTION", href: "/Projects" },
+  { name: "PROCESS", href: "/Process" },
+  { name: "SERVICES", href: "/Services" },
+  { name: "CONTACT", href: "/Contact" },
+];
 ---
 
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<slot />
-     
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <a href="/" class="brand">
+        <span class="brand-symbol">N</span>
+        <span>NOVARA</span>
+      </a>
+
+      <nav class="nav-links">
+        {navLinks.map((link) => (
+          <a href={link.href} class:list={{ active: Astro.url.pathname === link.href || (link.href !== "/" && Astro.url.pathname.toLowerCase() === link.href.toLowerCase()) }}>
+            {link.name}
+          </a>
+        ))}
+      </nav>
+
+      <a href="/Contact" class="nav-button">GET IN TOUCH ↗</a>
+
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div>
+          <a href="/" class="footer-brand">NOVARA<span>®</span></a>
+          <p>Minimal design. Maximum expression.</p>
+        </div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/About">About</a>
+          <a href="/Projects">Collection</a>
+          <a href="/Contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 NOVARA. ALL RIGHTS RESERVED.</p>
+        <p>DESIGNED FOR THE MODERN GENERATION.</p>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector(".nav-links");
+
+      toggle?.addEventListener("click", () => {
+        const isOpen = nav?.classList.toggle("show");
+        toggle.setAttribute("aria-expanded", String(Boolean(isOpen)));
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+  </body>
 </html>
+
+<style is:global>
+  :root {
+    --black: #090909;
+    --white: #ffffff;
+    --gray: #777777;
+    --light-gray: #eeeeee;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  .navbar {
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 5px;
+  }
+
+  .brand-symbol {
+    width: 34px;
+    height: 34px;
+    background: #000;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    letter-spacing: -2px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    transition: opacity .3s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    opacity: .45;
+  }
+
+  .nav-button {
+    background: #000;
+    color: #fff;
+    padding: 15px 22px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: .3s;
+  }
+
+  .nav-button:hover {
+    background: #444;
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 6px;
+    background: #000;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #777;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-size: clamp(35px, 5vw, 65px);
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .footer {
+    background: #080808;
+    color: white;
+    padding: 75px 7% 25px;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 65px;
+  }
+
+  .footer-brand {
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 6px;
+  }
+
+  .footer-brand span {
+    font-size: 12px;
+    vertical-align: top;
+  }
+
+  .footer-top p {
+    color: #888;
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 30px;
+  }
+
+  .footer-links a {
+    color: #aaa;
+    font-size: 11px;
+  }
+
+  .footer-links a:hover {
+    color: white;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid #292929;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  @media(max-width: 900px) {
+    .navbar {
+      padding: 0 5%;
+    }
+
+    .nav-links {
+      gap: 15px;
+    }
+
+    .nav-links a {
+      font-size: 9px;
+    }
+
+    .nav-button {
+      display: none;
+    }
+  }
+
+  @media(max-width: 650px) {
+    .navbar {
+      height: 72px;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 25px 7%;
+      flex-direction: column;
+      align-items: flex-start;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      padding: 8px 0;
+    }
+
+    .footer-top {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 12px;
+      line-height: 1.6;
+    }
+  }
+</style>

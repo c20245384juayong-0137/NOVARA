@@ -1,0 +1,114 @@
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="NOVARA | Brand Introduction">
+
+  <section class="hero-page">
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=2000&q=90" alt="Fashion model wearing modern streetwear" />
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span>THE NEW ERA OF EVERYDAY FASHION</span>
+      <h1>NOVARA<span>.</span></h1>
+      <p>REDEFINE YOUR EVERYDAY.</p>
+      <a href="/Projects">DISCOVER THE COLLECTION ↗</a>
+    </div>
+
+    <div class="hero-bottom">
+      <span>EST. 2026</span>
+      <span>MODERN STREETWEAR</span>
+      <span>01 / NOVARA</span>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero-page {
+    height: calc(100vh - 85px);
+    min-height: 600px;
+    position: relative;
+    background: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 7%;
+    overflow: hidden;
+  }
+
+  .hero-bg, .hero-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(90deg, rgba(0,0,0,.75), rgba(0,0,0,.1));
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-content > span {
+    font-size: 10px;
+    letter-spacing: 4px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(90px, 17vw, 200px);
+    font-weight: 900;
+    letter-spacing: -12px;
+    line-height: 1;
+    margin: 25px 0;
+  }
+
+  .hero-content h1 span { color: #999; }
+
+  .hero-content p {
+    font-size: 13px;
+    letter-spacing: 5px;
+    margin-bottom: 35px;
+  }
+
+  .hero-content a {
+    display: inline-block;
+    padding: 18px 25px;
+    background: white;
+    color: black;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  .hero-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: 7%;
+    right: 7%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #ddd;
+  }
+
+  @media(max-width: 650px) {
+    .hero-page { height: calc(100vh - 72px); }
+    .hero-content h1 { letter-spacing: -6px; }
+    .hero-content > span { letter-spacing: 2px; }
+    .hero-bottom { font-size: 8px; }
+  }
+</style>

@@ -1,0 +1,151 @@
+
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const steps = [
+  { number: "01", title: "CONCEPT", description: "Every NOVARA design begins with an idea. We explore modern fashion, identity, and simplicity." },
+  { number: "02", title: "DESIGN", description: "We develop clean silhouettes, thoughtful details, and timeless visual concepts." },
+  { number: "03", title: "CREATION", description: "The concepts are transformed into clothing pieces with attention to design and presentation." },
+  { number: "04", title: "EXPRESSION", description: "The final collection becomes a way for individuals to express their own identity." }
+];
+---
+
+<BaseLayout title="Our Process | NOVARA">
+
+  <section class="process-hero">
+    <span class="section-label">BEHIND THE BRAND / 04</span>
+    <h1>FROM IDEA<br />TO <span>IDENTITY.</span></h1>
+    <p>Every detail has a purpose. Every design tells a story.</p>
+  </section>
+
+  <section class="process-content">
+    <div class="process-intro">
+      <span class="section-label">THE NOVARA METHOD</span>
+      <h2>OUR CREATIVE<br />PROCESS.</h2>
+    </div>
+
+    <div class="steps">
+      {steps.map((step) => (
+        <article class="step">
+          <span class="step-number">{step.number}</span>
+          <div>
+            <h3>{step.title}</h3>
+            <p>{step.description}</p>
+          </div>
+          <span class="step-arrow">↗</span>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="process-image">
+    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1800&q=85" alt="Clothing design and apparel production" />
+    <div class="image-text">
+      <span>THE DETAILS MATTER.</span>
+      <h2>BUILT WITH<br />PURPOSE.</h2>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .process-hero {
+    padding: 130px 7%;
+    background: #f3f3f3;
+  }
+
+  .process-hero h1 {
+    font-size: clamp(60px, 11vw, 135px);
+    line-height: .9;
+    font-weight: 900;
+    letter-spacing: -8px;
+    margin: 35px 0;
+  }
+
+  .process-hero h1 span { color: #999; }
+
+  .process-hero p {
+    color: #777;
+    font-size: 14px;
+  }
+
+  .process-content {
+    padding: 120px 7%;
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 80px;
+  }
+
+  .process-intro h2 {
+    font-size: 55px;
+    line-height: .95;
+    letter-spacing: -3px;
+    margin-top: 30px;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 50px 1fr 25px;
+    gap: 20px;
+    padding: 30px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .step-number {
+    color: #999;
+    font-size: 12px;
+  }
+
+  .step h3 {
+    font-size: 19px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .step p {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.9;
+    max-width: 400px;
+  }
+
+  .step-arrow { font-size: 20px; }
+
+  .process-image {
+    height: 550px;
+    position: relative;
+    background: #111;
+  }
+
+  .process-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .65;
+  }
+
+  .image-text {
+    position: absolute;
+    bottom: 50px;
+    left: 7%;
+    color: white;
+  }
+
+  .image-text span {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .image-text h2 {
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: .95;
+    letter-spacing: -3px;
+    margin-top: 20px;
+  }
+
+  @media(max-width: 750px) {
+    .process-content { grid-template-columns: 1fr; gap: 45px; }
+    .process-hero h1 { letter-spacing: -4px; }
+    .process-image { height: 400px; }
+  }
+</style>
